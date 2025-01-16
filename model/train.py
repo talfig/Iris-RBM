@@ -1,3 +1,4 @@
+import random
 from utils import *
 from data.loader import loader
 from model.rbm import RBM
@@ -20,15 +21,15 @@ class RBMTrainer:
 
         # Training loop
         for i in range(epochs):
-            for feature, label in zip(features, labels):
-                v_true = np.concatenate((label, feature), axis=0)
-                prob = activation_prob(v_true, self.J.T, self.b, T=1)
-                v, h = rbm.contrastive_divergence_step(v_true)
+            feature, label = random.choice(list(zip(features, labels)))
+            v_true = np.concatenate((label, feature), axis=0)
+            prob = activation_prob(v_true, self.J.T, self.b, T=1)
+            v, h = rbm.contrastive_divergence_step(v_true)
 
-                # Update parameters
-                self.a += self.lr * (v_true - v)
-                self.b += self.lr * (prob - h)
-                self.J += self.lr * (np.outer(v_true, prob) - np.outer(v, h))
+            # Update parameters
+            self.a += self.lr * (v_true - v)
+            self.b += self.lr * (prob - h)
+            self.J += self.lr * (np.outer(v_true, prob) - np.outer(v, h))
 
             # Update the RBM instance with the new parameters
             rbm.update_parameters(self.a, self.b, self.J)

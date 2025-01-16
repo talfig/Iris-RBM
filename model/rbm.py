@@ -74,7 +74,7 @@ class RBM:
         h = np.random.randint(0, 2, self.h_size)
         return h
 
-    def contrastive_divergence(self, v0, k=10000):
+    def contrastive_divergence(self, v0, k=1000):
         """Performs contrastive divergence with multiple steps."""
         unfrozen_v, h = self.generate_visible_layer(), self.generate_hidden_layer()
         v = np.concatenate((unfrozen_v, v0), axis=0)
