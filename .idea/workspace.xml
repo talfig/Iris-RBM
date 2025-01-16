@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a60a812-b40f-47de-9ae4-cac4e9f3e296" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/rbm.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/rbm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
