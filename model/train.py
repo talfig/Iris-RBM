@@ -11,7 +11,7 @@ class RBMTrainer:
         self.h_size = h_size
         self.lr = lr
 
-    def train_rbm(self, file_path, epochs=10000):
+    def train_rbm(self, file_path, epochs=2000):
         # Load the dataset
         features, labels = loader(file_path)
 
@@ -22,8 +22,8 @@ class RBMTrainer:
         for i in range(epochs):
             for feature, label in zip(features, labels):
                 v_true = np.concatenate((label, feature), axis=0)
+                prob = activation_prob(v_true, self.J.T, self.b, T=1)
                 v, h = rbm.contrastive_divergence_step(v_true)
-                prob = activation_prob(v, self.J.T, self.b, T=1)
 
                 # Update parameters
                 self.a += self.lr * (v_true - v)
@@ -35,8 +35,6 @@ class RBMTrainer:
 
             # Calculate and print accuracy
             if (i + 1) % 100 == 0 or i == epochs - 1:
-                accuracy = calculate_accuracy(rbm, features, labels)
-                print(f'Epoch: {i + 1}, Accuracy: {accuracy:.2f}')
+                print(f'Epoch: {i + 1}')
 
         return self.a, self.b, self.J
-
