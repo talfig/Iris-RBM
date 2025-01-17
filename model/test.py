@@ -17,16 +17,13 @@ def test_rbm_init(dataset_path):
 
 
 def test_rbm_trainer(dataset_path, weights_path):
-    # Initialize the RBMTrainer
-    trainer = RBMTrainer()
+    # Load the trained RBM weights from the specified file
+    weights = np.load(weights_path)
 
-    # Train the RBM
-    print("Training the RBM...")
-    a, b, J = trainer.train_rbm(dataset_path)
-
-    # Save the weights to the specified file
-    np.savez(weights_path, a=a, b=b, J=J)
-    print(f"Weights saved to '{weights_path}'")
+    # Extract the weights and parameters from the saved file
+    a = weights['a']  # Visible layer bias
+    b = weights['b']  # Hidden layer bias
+    J = weights['J']  # Weight matrix
 
     # Create an RBM instance with the trained parameters
     rbm = RBM(a, b, J)

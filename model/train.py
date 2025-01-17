@@ -39,3 +39,19 @@ class RBMTrainer:
                 print(f'Epoch: {i + 1}')
 
         return self.a, self.b, self.J
+
+
+if __name__ == "__main__":
+    # Initialize the RBMTrainer
+    trainer = RBMTrainer()
+
+    dataset_path = '../data/iris/binary_preprocessed_iris.npz'
+    weights_path = '../data/iris/rbm_weights.npz'
+
+    # Train the RBM
+    print("Training the RBM...")
+    a, b, J = trainer.train_rbm(dataset_path)
+
+    # Save the weights to the specified file
+    np.savez(weights_path, a=a, b=b, J=J)
+    print(f"Weights saved to '{weights_path}'")
