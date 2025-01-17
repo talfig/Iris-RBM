@@ -53,8 +53,7 @@ This will:
 - Calculate the accuracy of the trained RBM model.
 
 3. Test the RBM
-Once the RBM is trained, you can test its performance using the `test_rbm_init.py` and `test_rbm_trainer.py` scripts.
-These scripts initialize an RBM with random weights and calculate its accuracy on the Iris dataset.
+Once the RBM is trained, you can test its performance using the `test_rbm_init.py` and `test_rbm_trainer.py` scripts. These scripts initialize an RBM with random weights and calculate its accuracy on the Iris dataset.
 ```bash
 python test_rbm_init.py
 ```
