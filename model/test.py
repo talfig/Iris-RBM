@@ -1,6 +1,5 @@
 from model.rbm import RBM
 from data.loader import loader
-from model.train import RBMTrainer
 from utils import *
 
 
