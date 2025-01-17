@@ -12,9 +12,9 @@ class RBMTrainer:
         self.h_size = h_size
         self.lr = lr
 
-    def train_rbm(self, file_path, epochs=10000):
+    def train_rbm(self, dataset_path, epochs=10000):
         # Load the dataset
-        features, labels = loader(file_path)
+        features, labels = loader(dataset_path)
 
         # Initialize the RBM instance with current parameters
         rbm = RBM(self.a, self.b, self.J, self.v_size, self.v0_size, self.h_size)
