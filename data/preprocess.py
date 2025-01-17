@@ -63,7 +63,7 @@ def transform_vector_to_binary(vector, percentiles):
         percentiles (numpy.ndarray): The percentiles for each feature.
 
     Returns:
-        list: A list of binary values representing the vector.
+        numpy.ndarray: A binary NumPy array representing the vector.
     """
     binary_vector = []
 
@@ -80,7 +80,8 @@ def transform_vector_to_binary(vector, percentiles):
         else:
             binary_vector.extend([0, 0, 1])  # Large
 
-    return binary_vector
+    # Convert the binary vector to a NumPy array
+    return np.array(binary_vector, dtype=float)
 
 
 def transform_to_binary(features, percentiles):
@@ -122,7 +123,6 @@ def one_hot_encode_labels(labels):
 
     # One-hot encoding
     one_hot_labels = np.eye(num_classes)[labels]
-
     return one_hot_labels
 
 

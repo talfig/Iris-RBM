@@ -19,7 +19,7 @@ def loader(file_path):
 
 
 if __name__ == "__main__":
-    file_path = "iris/preprocessed_iris.npz"
+    file_path = "iris/binary_preprocessed_iris.npz"
     iris_features, iris_labels = loader(file_path)
     print("Features shape:", iris_features.shape)
     print("Labels shape:", iris_labels.shape)
