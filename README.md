@@ -12,6 +12,7 @@ This project implements a **Restricted Boltzmann Machine (RBM)** and applies it 
 - `model/`
   - `rbm.py`: Implementation of the Restricted Boltzmann Machine class.
   - `train.py`: Training logic for the RBM.
+  - `test.py`: Evaluating the model accuracy.
 - `utils/`
   - Helper functions for preprocessing, activation, and RBM evaluation.
 
@@ -53,13 +54,9 @@ This will:
 - Calculate the accuracy of the trained RBM model.
 
 3. Test the RBM
-Once the RBM is trained, you can test its performance using the `test_rbm_init.py` and `test_rbm_trainer.py` scripts. These scripts initialize an RBM with random weights and calculate its accuracy on the Iris dataset.
+Once the RBM is trained, you can test its performance using the `test_rbm_init` and `test_rbm_trainer` functions. These functions initialize an RBM with random weights or trained weights respectively, and calculate its accuracy on the Iris dataset.
 ```bash
-python test_rbm_init.py
-```
-or
-```bash
-python test_rbm_trainer.py
+python test.py
 ```
 This will output the accuracy of the RBM based on its predictions on the Iris dataset.
 
@@ -67,4 +64,3 @@ This will output the accuracy of the RBM based on its predictions on the Iris da
 - `RBM` class: Implements the Restricted Boltzmann Machine with methods for weight initialization, hidden and visible layer sampling, and contrastive divergence.
 - `RBMTrainer` class: Handles the training of the RBM, including the process of training the RBM and saving the trained weights.
 - `preprocess_iris` function: Prepares the Iris dataset for training by dividing the features into small, medium, and large categories and saving percentiles and binary transformations.
-- `transform_to_binary` function: Converts feature values into binary values based on calculated percentiles.
