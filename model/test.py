@@ -35,5 +35,11 @@ def test_rbm_trainer(dataset_path, weights_path):
 
 
 if __name__ == "__main__":
-    test_rbm_trainer('../data/iris/binary_preprocessed_iris.npz',
-                     '../data/iris/rbm_weights.npz')
+    dataset_path = '../data/iris/binary_preprocessed_iris.npz'
+    weights_path = '../data/iris/rbm_weights.npz'
+
+    print("Starting evaluation of model initialization:")
+    test_rbm_init(dataset_path)
+
+    print("Starting evaluation of model training:")
+    test_rbm_trainer(dataset_path, weights_path)
